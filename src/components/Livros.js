@@ -109,7 +109,7 @@ class Livros extends Component {
                 {this.state.displayResultado === true ? <div className="MsgBox">{this.state.Msg}</div>: null}
                 {this.state.displayBookFavList === true ? <LivrosFavLista displayBookFavList={this.state.displayBookFavList}/> : null}
                 {this.state.displayBookList === true ? <LivrosLista books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
-                
+                <Paginas items={this.state.books} onChangePage={this.onChangePage} pagerInfo={this.state.pagerInfo} pageOfItems={this.state.pageOfItems} className="pagination"/>
             </div>
         )
     }

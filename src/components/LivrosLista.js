@@ -1,5 +1,6 @@
 import React from 'react';
 import LivroCard from './LivroCard';
+import ImgNo from "../img/Scapa.jpg";
 
 const LivrosLista = (props) => {
 
@@ -11,7 +12,7 @@ const LivrosLista = (props) => {
                     if(typeof thumb != 'undefined'){
                         thumb = book.volumeInfo.imageLinks.thumbnail;
                     }else {
-                        thumb = './img/Scapa.jpg';
+                        thumb = 'https://png.pngtree.com/png-vector/20190217/ourlarge/pngtree-digital-book-icon-design-template-vector-png-image_555235.jpg';
                     }
 
                     var desc = book.volumeInfo.description;
