@@ -19,7 +19,8 @@ class Livros extends Component {
             displayBookList: true,
             displayBookFavList: false,
             displayPesquisa: true,
-            displaySemresultado: false,
+            displayResultado: true,
+            Msg:'',
             pageOfItems: [],
             items: [],
             pagerInfo : [],
@@ -46,14 +47,17 @@ class Livros extends Component {
                 this.setState({ displayBookList: true})
                 /* Caso seja feita uma nova pesquisa durante a tela de favoritos */
                  this.setState({ displayBookFavList: false})
+                 this.setState({ Msg: 'Aproximadamente ' + Number(data.data.totalItems).toLocaleString('pt-BR') + ' resultados.'})
             }else{
                 /* Pesquisa sem resultados */
                 this.setState({ displayBookList: false})                
                 this.setState({ displayBookFavList: false})
-            }this.setState({ displaySemresultado: true})
+                this.setState({ Msg: 'Ops.... não encontrei nada.'})
+            }
+            
         })
 
-   
+        this.setState({ displayResultado: true})
           
        
     }
@@ -102,9 +106,10 @@ class Livros extends Component {
             <div>                
                 <Header handleFavBooks={this.handleFavBooks}/>                
                 {this.state.displayPesquisa === true ? <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/> : null}
+                {this.state.displayResultado === true ? <div className="MsgBox">{this.state.Msg}</div>: null}
                 {this.state.displayBookFavList === true ? <LivrosFavLista displayBookFavList={this.state.displayBookFavList}/> : null}
                 {this.state.displayBookList === true ? <LivrosLista books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
-                {this.state.displaySemresultado === true ? <div className="m404">Ops.... não encontrei nada.</div>: null}
+                
             </div>
         )
     }
