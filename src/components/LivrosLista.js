@@ -1,6 +1,6 @@
 import React from 'react';
 import LivroCard from './LivroCard';
-import ImgNo from "../img/Scapa.jpg";
+
 
 const LivrosLista = (props) => {
 
@@ -34,7 +34,7 @@ const LivrosLista = (props) => {
                                 image= {thumb}
                                 title={book.volumeInfo.title}
                                 published={pubDay}
-                                description={desc.substring(0, 200)+'...'}
+                                description={desc.substring(0, 300)+'...'}
                                 link={book.volumeInfo.infoLink}                               
                             />
                 })

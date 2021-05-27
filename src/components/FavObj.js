@@ -16,9 +16,9 @@ class FavObj extends Component {
         var btn_class = this.state.clicked ? "fill-star fas fa-star" : "void-star fas fa-star";
 
         return (
-             <div>
-                <i className={btn_class} onClick={this.changeColor.bind(this)}></i>
-             </div>
+             
+                <i className={btn_class} onClick={this.changeColor.bind(this)}>FAVORITO</i>
+             
         )
     }
 }

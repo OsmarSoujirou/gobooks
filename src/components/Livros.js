@@ -20,6 +20,7 @@ class Livros extends Component {
             displayBookFavList: false,
             displayPesquisa: true,
             displayResultado: true,
+            NomeMenu:'< Favoritos >',
             Msg:'',
             pageOfItems: [],
             items: [],
@@ -67,8 +68,20 @@ class Livros extends Component {
     }
 
     handleFavBooks = () => {
-        this.setState({ displayBookFavList: true})
-        this.setState({ displayBookList: false})
+
+    if(!this.state.displayBookFavList){
+        this.setState({ displayBookFavList: true});
+        this.setState({ displayBookList: false});
+        this.setState({ displayPesquisa: false});
+        this.setState({ NomeMenu: '<  Buscar  >'});
+        console.log(this.state.NomeMenu);
+    }else{
+        this.setState({ displayBookFavList: false});
+        this.setState({ displayBookList: true});
+        this.setState({ displayPesquisa: true});
+        this.setState({ NomeMenu: '< Favoritos >'});
+    }
+
     }
 
 
@@ -104,12 +117,12 @@ class Livros extends Component {
         }
         return (
             <div>                
-                <Header handleFavBooks={this.handleFavBooks}/>                
+                <Header handleFavBooks={this.handleFavBooks} NomeMenu={this.state.NomeMenu} />                
                 {this.state.displayPesquisa === true ? <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/> : null}
                 {this.state.displayResultado === true ? <div className="MsgBox">{this.state.Msg}</div>: null}
                 {this.state.displayBookFavList === true ? <LivrosFavLista displayBookFavList={this.state.displayBookFavList}/> : null}
                 {this.state.displayBookList === true ? <LivrosLista books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
-                <Paginas items={this.state.books} onChangePage={this.onChangePage} pagerInfo={this.state.pagerInfo} pageOfItems={this.state.pageOfItems} className="pagination"/>
+                <Paginas  items={this.state.books} onChangePage={this.onChangePage} pagerInfo={this.state.pagerInfo} pageOfItems={this.state.pageOfItems} className="pagination"/>
             </div>
         )
     }

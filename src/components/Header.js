@@ -6,8 +6,8 @@ const Header = (props) => {
         <header className="top-page">
             <img className="logo_img" src={logo}/>
             <br/>
-            <div className="menu">          
-            <span onClick={props.handleFavBooks} ><i> &lt; Favoritos &gt;</i></span>
+            <div className="menu"  onClick={props.handleFavBooks}>          
+            <span><i> {props.NomeMenu} </i></span>
             </div>
             
         </header>

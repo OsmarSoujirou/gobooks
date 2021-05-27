@@ -17,15 +17,19 @@ const LivroCard = (props) => {
             <div className="card-description">
                 <h2 className="card-title">{props.title}</h2>
                 <h3 className="card-text">Ano: {props.published}</h3>
-                <p className="card-text">Descrição: {props.description}</p>                
-            </div>
-            <div className="card-favorite">
-            <a href={props.link} target="_blank" rel="noreferrer">
+                <p className="card-text card-desc">{props.description}</p> 
+                <div className="card-favorite">
+                <div className="card-bt bt-acess">
+                <a href={props.link} target="_blank" rel="noreferrer">
                 ACESSAR
-            </a>
-                <span onClick={() => addFavBook(props.image, props.title, props.published, props.description, props.link)}><FavObj/></span>
-            
-            </div>            
+                </a>
+                </div>
+                <div  className="card-bt bt-fav">
+                 <span onClick={() => addFavBook(props.image, props.title, props.published, props.description, props.link)}><FavObj/></span>
+                </div>
+                </div>                  
+            </div>
+                    
         </div>
        
     )

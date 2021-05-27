@@ -107,7 +107,7 @@ class Paginas extends React.Component {
         }
 
         return (
-            <ul className="pagination">
+            <ul className="pagination" onClick={() => window.scrollTo(0, 0)}>
                 
                 <li className={pager.currentPage === 1 ? 'disabled' : ''}>
                     <a onClick={() => this.setPage(pager.currentPage - 1)}>Anterior</a>
