@@ -5,7 +5,7 @@ const Header = (props) => {
         <header className="top-page">
             <h1><i className="fas fa-book"></i> GO&gt;BOOKS</h1>
             <br/>
-            <span onClick={props.handleFavBooks} className="fav-btn"><i className="fas fa-star"> Livros Favoritos</i></span>
+            <span onClick={props.handleFavBooks} className="fav-btn"><i className="fas fa-star">Favoritos</i></span>
             
         </header>
     )

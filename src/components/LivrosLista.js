@@ -1,7 +1,7 @@
 import React from 'react';
 import LivroCard from './LivroCard';
 
-const LivrosList = (props) => {
+const LivrosLista = (props) => {
 
     return (
         <div className="card-container">
@@ -11,7 +11,7 @@ const LivrosList = (props) => {
                     if(typeof thumb != 'undefined'){
                         thumb = book.volumeInfo.imageLinks.thumbnail;
                     }else {
-                        thumb = 'https://d1pkzhm5uq4mnt.cloudfront.net/imagens/capas/822a5d14da9a2c8b035750e0f1838e2c186360a9.jpg';
+                        thumb = './img/Scapa.jpg';
                     }
 
                     var desc = book.volumeInfo.description;
@@ -42,4 +42,4 @@ const LivrosList = (props) => {
     )
 }
 
-export default LivrosList;
+export default LivrosLista;

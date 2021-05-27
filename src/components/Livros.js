@@ -16,7 +16,7 @@ class Livros extends Component {
         this.state = {
             books: [],
             searchField: '',
-            displayBookList: false,
+            displayBookList: true,
             displayBookFavList: false,
             pageOfItems: [],
             items: [],
@@ -25,6 +25,7 @@ class Livros extends Component {
         }        
         this.onChangePage = this.onChangePage.bind(this);
     }
+
     onChangePage(pageOfItems, currentPage) {
 
         this.setState({ pageOfItems: pageOfItems });
@@ -57,13 +58,42 @@ class Livros extends Component {
 
 
     render(){
-        
+        if( this.state.books.length !== 0){
+
+            let renderBooks = {}
+            switch(this.state.currentPage){
+                case 1:
+                    renderBooks = {startIndex: 0, endIndex: 8}
+                    break;
+                case 2:
+                    renderBooks = {startIndex: 9, endIndex: 17}
+                    break;
+                case 3:
+                    renderBooks = {startIndex: 18, endIndex: 26}
+                    break;
+                case 4:
+                    renderBooks = {startIndex: 27, endIndex: 35}
+                    break;
+                case 5:
+                    renderBooks = {startIndex: 36, endIndex: 39}
+                    break;
+                default:
+                    renderBooks = {startIndex: 0, endIndex: 8}
+                    break;
+            }
+            this.state.items = [];
+            for(let i = renderBooks.startIndex; i <= renderBooks.endIndex; i++){
+                this.state.items.push(this.state.books[i])
+            }
+
+        }
         return (
             <div>                
-                <Header handleFavBooks={this.handleFavBooks}/>
-                <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/>
+                <Header handleFavBooks={this.handleFavBooks}/>                
+                {this.state.displayBookList === true ? <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/> : null}
                 {this.state.displayBookFavList === true ? <LivrosFavLista displayBookFavList={this.state.displayBookFavList}/> : null}
                 {this.state.displayBookList === true ? <LivrosLista books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
+            
             </div>
         )
     }
