@@ -9,6 +9,28 @@ import Paginas from './Paginas';
 
 class Livros extends Component {
 
+    constructor(props){
+        super(props);
+
+        /* Definição de valores padrões */
+        this.state = {
+            books: [],
+            searchField: '',
+            displayBookList: false,
+            displayBookFavList: false,
+            pageOfItems: [],
+            items: [],
+            pagerInfo : [],
+            currentPage: 1
+        }        
+        this.onChangePage = this.onChangePage.bind(this);
+    }
+    onChangePage(pageOfItems, currentPage) {
+
+        this.setState({ pageOfItems: pageOfItems });
+        this.setState({ currentPage: currentPage });
+        
+    }
     /* Pesquisa, Axios para HttpRequests */
     searchBook = (e) => {
         e.preventDefault();
@@ -24,6 +46,15 @@ class Livros extends Component {
         this.setState({ displayBookFavList: false})
     }
 
+    handleSearch = (e) => {
+        this.setState({ searchField: e.target.value})        
+    }
+
+    handleFavBooks = () => {
+        this.setState({ displayBookFavList: true})
+        this.setState({ displayBookList: false})
+    }
+
 
     render(){
         
@@ -31,6 +62,8 @@ class Livros extends Component {
             <div>                
                 <Header handleFavBooks={this.handleFavBooks}/>
                 <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/>
+                {this.state.displayBookFavList === true ? <LivrosFavLista displayBookFavList={this.state.displayBookFavList}/> : null}
+                {this.state.displayBookList === true ? <LivrosLista books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
             </div>
         )
     }
