@@ -18,6 +18,8 @@ class Livros extends Component {
             searchField: '',
             displayBookList: true,
             displayBookFavList: false,
+            displayPesquisa: true,
+            displaySemresultado: false,
             pageOfItems: [],
             items: [],
             pagerInfo : [],
@@ -38,13 +40,22 @@ class Livros extends Component {
         
         const url = "https://www.googleapis.com/books/v1/volumes?q="
         request.get(url + this.state.searchField.replaceAll(' ', '+') + '&key=AIzaSyAR68qUv-yD9CPeYgTDS5MhxZfxi1kbXLQ&maxResults=40')
-          .then(data => {
-              this.setState({ books: [data.data.items][0]})
-              console.log(this.data)
-          })
-        this.setState({ displayBookList: true})
-        /* Caso seja feita uma nova pesquisa durante a tela de favoritos */
-        this.setState({ displayBookFavList: false})
+        .then(data => {
+            if(data.data.totalItems !== 0){
+                this.setState({ books: [data.data.items][0]})
+                this.setState({ displayBookList: true})
+                /* Caso seja feita uma nova pesquisa durante a tela de favoritos */
+                 this.setState({ displayBookFavList: false})
+            }else{
+                /* Pesquisa sem resultados */
+                this.setState({ displayBookList: false})                
+                this.setState({ displayBookFavList: false})
+            }this.setState({ displaySemresultado: true})
+        })
+
+   
+          
+       
     }
 
     handleSearch = (e) => {
@@ -90,10 +101,10 @@ class Livros extends Component {
         return (
             <div>                
                 <Header handleFavBooks={this.handleFavBooks}/>                
-                {this.state.displayBookList === true ? <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/> : null}
+                {this.state.displayPesquisa === true ? <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/> : null}
                 {this.state.displayBookFavList === true ? <LivrosFavLista displayBookFavList={this.state.displayBookFavList}/> : null}
                 {this.state.displayBookList === true ? <LivrosLista books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
-            
+                {this.state.displaySemresultado === true ? <div className="m404">Ops.... não encontrei nada.</div>: null}
             </div>
         )
     }
