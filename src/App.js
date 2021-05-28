@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import Header from './components/Header';
 import Livros from './components/Livros';
 import './App.css';
+
+/* By Osmar Araujo :) */
 
 class App extends Component {
   render(){

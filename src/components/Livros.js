@@ -20,7 +20,9 @@ class Livros extends Component {
             displayBookFavList: false,
             displayPesquisa: true,
             displayResultado: true,
-            NomeMenu:'< Favoritos >',
+            displayPaginas: false,
+            StatMenu1:'disabled',
+            StatMenu2:'',
             Msg:'',
             pageOfItems: [],
             items: [],
@@ -49,39 +51,52 @@ class Livros extends Component {
                 /* Caso seja feita uma nova pesquisa durante a tela de favoritos */
                  this.setState({ displayBookFavList: false})
                  this.setState({ Msg: 'Aproximadamente ' + Number(data.data.totalItems).toLocaleString('pt-BR') + ' resultados.'})
-            }else{
+                 this.setState({ displayPaginas: true})
+                }else{
                 /* Pesquisa sem resultados */
                 this.setState({ displayBookList: false})                
                 this.setState({ displayBookFavList: false})
+                this.setState({ displayPaginas: false})
                 this.setState({ Msg: 'Ops.... não encontrei nada.'})
             }
             
         })
 
-        this.setState({ displayResultado: true})
-          
+        this.setState({ displayResultado: true})         
        
     }
-
+ /*Retorno Pesquisa*/
     handleSearch = (e) => {
         this.setState({ searchField: e.target.value})        
     }
-
+ /*Exibir Favoritos*/
     handleFavBooks = () => {
 
-    if(!this.state.displayBookFavList){
         this.setState({ displayBookFavList: true});
         this.setState({ displayBookList: false});
         this.setState({ displayPesquisa: false});
-        this.setState({ NomeMenu: '<  Buscar  >'});
-        console.log(this.state.NomeMenu);
-    }else{
+        this.setState({ displayResultado: false});
+        this.setState({ displayPaginas: false})
+        this.setState({ StatMenu1: ''});
+        this.setState({ StatMenu2: 'disabled'});
+    }
+
+ /*Exibir Busca de Livros*/
+    handleBusBooks = () => {
+
         this.setState({ displayBookFavList: false});
         this.setState({ displayBookList: true});
         this.setState({ displayPesquisa: true});
-        this.setState({ NomeMenu: '< Favoritos >'});
+        this.setState({ displayResultado: true});
+        this.setState({ displayPaginas: true})
+        this.setState({ StatMenu1: 'disabled'});
+        this.setState({ StatMenu2: ''});    
+
     }
 
+    handleRef = () =>{
+        this.setState({ displayBookFavList: !this.state.displayBookFavList});
+        this.setState({ displayBookList: !this.state.displayBookList});     
     }
 
 
@@ -116,13 +131,14 @@ class Livros extends Component {
 
         }
         return (
-            <div>                
-                <Header handleFavBooks={this.handleFavBooks} NomeMenu={this.state.NomeMenu} />                
+            <div>
+                <div className='line-style'></div>                
+                <Header handleFavBooks={this.handleFavBooks} handleBusBooks={this.handleBusBooks} StatMenu1={this.state.StatMenu1} StatMenu2={this.state.StatMenu2} />                
                 {this.state.displayPesquisa === true ? <PesquisaDiv searchBook={this.searchBook} handleSearch={this.handleSearch} handleFavBooks={this.handleFavBooks}/> : null}
                 {this.state.displayResultado === true ? <div className="MsgBox">{this.state.Msg}</div>: null}
-                {this.state.displayBookFavList === true ? <LivrosFavLista displayBookFavList={this.state.displayBookFavList}/> : null}
-                {this.state.displayBookList === true ? <LivrosLista books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
-                <Paginas  items={this.state.books} onChangePage={this.onChangePage} pagerInfo={this.state.pagerInfo} pageOfItems={this.state.pageOfItems} className="pagination"/>
+                {this.state.displayBookFavList === true ? <LivrosFavLista handleRef={this.handleRef} displayBookFavList={this.state.displayBookFavList}/> : null}
+                {this.state.displayBookList === true ? <LivrosLista  handleRef={this.handleRef}  books={this.state.items} displayBookList={this.state.displayBookList} /> : null}
+                {this.state.displayPaginas === true ? <Paginas  items={this.state.books} onChangePage={this.onChangePage} pagerInfo={this.state.pagerInfo} pageOfItems={this.state.pageOfItems} className="pagination"/> : null}
             </div>
         )
     }

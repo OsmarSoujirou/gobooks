@@ -1,16 +1,23 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 
-class FavObj extends Component {
+const FavObj = ({favorito}) => {   
+const [fav, setFavorito] = useState(favorito)    
+const AlterarFav = () => {
+        /* Função para alternar o stylo do favorito */
+       if (fav == 'card-bt bt-favN'){
+            setFavorito('card-bt bt-fav');   
+        }else {
+            setFavorito('card-bt bt-favN'); 
+        }}
 
-    render(){
-        
-        return (
-             <div className={this.props.favorito} >
+         return ( 
+             
+             <div className={fav} onClick={AlterarFav}>
                 <a>FAVORITO</a>
-             </div>
-        )
-    }
-}
+             </div>     
+        );
+
+};
 
 
 export default FavObj;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* Modulo de Pesquisa */
+
 const PesquisaDiv = (props) => {
     return (        
         <div className="search-area">

@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+<h1 align="center">
+    <img alt="Huntweb" title="#GoBooks" src="./imgs/print.jpg" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4 align="center"> 
+	🚧 Desafio Dev. 🚀 🚧
+</h4> 
 
-## Available Scripts
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/osmarsoujirou/gobooks?color=%2304D361">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/osmarsoujirou/gobooks">
 
-In the project directory, you can run:
+</p>
 
-### `npm start`
+## 💻 Sobre o projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+♻️ GoBooks
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+É um desafio almejando uma vaga no programa de desenvolvimento de Devs da Riachuelo.
 
-### `npm test`
+Detalhes:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+●	Criar um sistema para buscar livros disponíveis na API do Google Books
+●	O layout da aplicação fica a cargo do desenvolvedor
+●	Em todos os resultados das buscas devem retornar os itens descritos abaixo:
+-	Imagem da capa do livro
+-	Título 
+-	descrição
+-	data de publicação
 
-### `npm run build`
+Requisitos funcionais
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+●	Como usuário gostaria de digitar algumas palavras e ver uma lista de livros que tenham relação com a minha busca.
+●	Como usuário gostaria de clicar em um destes livros para ver em detalhes as descrições do livro
+●	Como usuário gostaria de marcar o livro como favorito para, futuramente filtrá-los por isso
+●	Como usuário eu devo utilizar um paginador para acessar o restante dos resultados
+●	Como usuário eu gostaria de abrir o site em um dispositivo móvel sem comprometer a navegação do site.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Requisitos não funcionais
+●	Você pode utilizar qualquer framework JavaScript que quiser (Indicamos: React)
+●	Tente reutilizar o máximo possível de código
+●	Realize commits (git) constantes de acordo com a progressão das atividades.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Links relacionados
+●	API Google Books - https://developers.google.com/books/
 
-### `npm run eject`
+Entrega
+●	Entrega deve ser feito em um repositório Git, pode ser no github ou no Bitbucket
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🚀 Como executar o projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Pré-requisitos
 
-## Learn More
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js][nodejs]. 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode][vscode]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🧭 Rodando a aplicação web (Front End)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash 
+# Clone este repositório
+$ git clone https://github.com/osmarsoujirou/gobooks
 
-### Code Splitting
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd gobooks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Instale as dependências
+$ npm install
 
-### Analyzing the Bundle Size
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
-### Making a Progressive Web App
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📝
 
-### Advanced Configuration
+Feito com ❤️ por Osmar Araujo 👋🏽 [Entre em contato!](https://www.linkedin.com/in/osmar-borges-98793515a/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

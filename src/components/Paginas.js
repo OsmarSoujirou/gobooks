@@ -1,12 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const propTypes = {
-    items: PropTypes.array.isRequired,
-    onChangePage: PropTypes.func.isRequired,
-    initialPage: PropTypes.number,
-    pageSize: PropTypes.number
-}
+/* Modulo de Paginação do resultado */
 
 const defaultProps = {
     initialPage: 1,
@@ -18,13 +12,13 @@ class Paginas extends React.Component {
         super(props);
         this.state = { pager: {} };
     }
-
+/* É executado quando o componente estiver prestes a ser montado no DOM da página */
     componentWillMount() {
         if (this.props.items && this.props.items.length) {
             this.setPage(this.props.initialPage);
         }
     }
-
+/* É executado quando o novo componente (já atualizado) foi atualizado no DOM. */
     componentDidUpdate(prevProps, prevState) {
         if (this.props.items !== prevProps.items) {
             this.setPage(this.props.initialPage);
@@ -34,34 +28,21 @@ class Paginas extends React.Component {
     setPage(page) {
         var { items, pageSize } = this.props;
         var pager = this.state.pager;
-
         if (page < 1 || page > pager.totalPages) {
             return;
         }
-
-
         pager = this.getPager(items.length, page, pageSize);
-
-
         var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
-
-
-
         this.setState({ pager: pager });
-
-
         this.props.onChangePage(pageOfItems, pager.currentPage);
     }
 
     getPager(totalItems, currentPage, pageSize) {
 
         currentPage = currentPage || 1;
-
         pageSize = pageSize || 10;
 
-
-        var totalPages = Math.ceil(totalItems / pageSize);        
-
+        var totalPages = Math.ceil(totalItems / pageSize);
         var startPage, endPage;
         if (totalPages <= 10) {
             startPage = 1;
@@ -79,10 +60,8 @@ class Paginas extends React.Component {
             }
         }
 
-
         var startIndex = (currentPage - 1) * pageSize;
         var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
-
         var pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
 
         return {
@@ -101,14 +80,12 @@ class Paginas extends React.Component {
     render() {
         var pager = this.state.pager;
         this.props.pagerInfo.push(pager);
-
         if (!pager.pages || pager.pages.length <= 1) {
             return null;
         }
 
         return (
-            <ul className="pagination" onClick={() => window.scrollTo(0, 0)}>
-                
+            <ul className="pagination" onClick={() => window.scrollTo(0, 0)}>                
                 <li className={pager.currentPage === 1 ? 'disabled' : ''}>
                     <a onClick={() => this.setPage(pager.currentPage - 1)}>Anterior</a>
                 </li>
@@ -119,13 +96,12 @@ class Paginas extends React.Component {
                 )}
                 <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
                     <a onClick={() => this.setPage(pager.currentPage + 1)}>Próxima</a>
-                </li>
-               
+                </li>               
             </ul>
         );
     }
 }
 
-Paginas.propTypes = propTypes;
+
 Paginas.defaultProps = defaultProps;
 export default Paginas;
