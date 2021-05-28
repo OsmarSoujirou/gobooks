@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Huntweb" title="#GoBooks" src="./imgs/print.jpg" />
+    <img alt="GoBooks" title="#GoBooks" src="./imgs/print_01.jpg" />
 </h1>
 
 <h4 align="center"> 
