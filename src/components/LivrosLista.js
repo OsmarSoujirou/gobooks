@@ -30,7 +30,7 @@ const LivrosLista = (props) => {
                         pubDay = 'Indisponível';
                     }                    
                     /* Validação de Livro já Favorito */
-                    if (localStorage.getItem(book.accessInfo.webReaderLink) == null){
+                    if (localStorage.getItem(book.volumeInfo.infoLink) == null){
                         var favorito = 'card-bt bt-favN'
                     }else {                       
                         var favorito = 'card-bt bt-fav'                        
@@ -41,7 +41,7 @@ const LivrosLista = (props) => {
                                 title={book.volumeInfo.title}
                                 published={pubDay}
                                 description={desc.substring(0, 300)+'...'}
-                                link={book.accessInfo.webReaderLink}  
+                                link={book.volumeInfo.infoLink}  
                                 favorito={favorito}                                                   
                             />
                 })

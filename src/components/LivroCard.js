@@ -4,7 +4,7 @@ import FavObj from './FavObj';
 /* Função para armazenar/remover as informações de favoritos.*/
 function addFavBook(image, title, date, desc, link, favorito){
         var bookInfos = {image: image, title: title, published: date, description: desc, link: link}
-        if (favorito == 'card-bt bt-favN'){
+        if (favorito === 'card-bt bt-favN'){
             localStorage.setItem(link, JSON.stringify(bookInfos));            
         }else {
             localStorage.removeItem(link);                  
