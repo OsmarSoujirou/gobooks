@@ -1,10 +1,10 @@
 <h1 align="center">
     <img alt="GoBooks" title="#GoBooks" src="./imgs/print_01.png" />
 </h1>
-
+s
 <h4 align="center"> 
 	🚧 Desafio Dev. 🚀 🚧
-</h4> 
+</h4>
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/osmarsoujirou/gobooks?color=%2304D361">
@@ -22,60 +22,60 @@
 
 Detalhes:
 </br>
-●	Criar um sistema para buscar livros disponíveis na API do Google Books
+● Criar um sistema para buscar livros disponíveis na API do Google Books
 </br>
-●	O layout da aplicação fica a cargo do desenvolvedor
+● O layout da aplicação fica a cargo do desenvolvedor
 </br>
-●	Em todos os resultados das buscas devem retornar os itens descritos abaixo:
+● Em todos os resultados das buscas devem retornar os itens descritos abaixo:
 </br>
--	Imagem da capa do livro
--	Título 
--	descrição
--	data de publicação
-</br></br>
-Requisitos funcionais
 
-●	Como usuário gostaria de digitar algumas palavras e ver uma lista de livros que tenham relação com a minha busca.
+- Imagem da capa do livro
+- Título
+- descrição
+- data de publicação
+  </br></br>
+  Requisitos funcionais
+
+● Como usuário gostaria de digitar algumas palavras e ver uma lista de livros que tenham relação com a minha busca.
 </br>
-●	Como usuário gostaria de clicar em um destes livros para ver em detalhes as descrições do livro
+● Como usuário gostaria de clicar em um destes livros para ver em detalhes as descrições do livro
 </br>
-●	Como usuário gostaria de marcar o livro como favorito para, futuramente filtrá-los por isso
+● Como usuário gostaria de marcar o livro como favorito para, futuramente filtrá-los por isso
 </br>
-●	Como usuário eu devo utilizar um paginador para acessar o restante dos resultados
+● Como usuário eu devo utilizar um paginador para acessar o restante dos resultados
 </br>
-●	Como usuário eu gostaria de abrir o site em um dispositivo móvel sem comprometer a navegação do site.
+● Como usuário eu gostaria de abrir o site em um dispositivo móvel sem comprometer a navegação do site.
 </br>
 </br>
 Requisitos não funcionais
 
-●	Você pode utilizar qualquer framework JavaScript que quiser (Indicamos: React)
+● Você pode utilizar qualquer framework JavaScript que quiser (Indicamos: React)
 </br>
-●	Tente reutilizar o máximo possível de código
+● Tente reutilizar o máximo possível de código
 </br>
-●	Realize commits (git) constantes de acordo com a progressão das atividades.
+● Realize commits (git) constantes de acordo com a progressão das atividades.
 </br>
 Links relacionados
 </br>
-●	API Google Books - https://developers.google.com/books/
+● API Google Books - https://developers.google.com/books/
 </br>
 </br>
 Entrega
 </br>
-●	Entrega deve ser feito em um repositório Git, pode ser no github ou no Bitbucket
+● Entrega deve ser feito em um repositório Git, pode ser no github ou no Bitbucket
 </br>
-
 
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js][nodejs]. 
+[Git](https://git-scm.com), [Node.js][nodejs].
 Além disto é bom ter um editor para trabalhar com o código como [VSCode][vscode]
 
 ### 🧭 Rodando a aplicação web (Front End)
 
-```bash 
+```bash
 # Clone este repositório
 $ git clone https://github.com/osmarsoujirou/gobooks
 
@@ -95,5 +95,3 @@ $ npm run start
 ## 📝
 
 Feito com ❤️ por Osmar Araujo 👋🏽 [Entre em contato!](https://www.linkedin.com/in/osmar-borges-98793515a/)
-
-
